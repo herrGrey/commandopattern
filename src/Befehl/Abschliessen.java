@@ -1,10 +1,8 @@
 package Befehl;
 
-import empfaenger.Kassensystem;
+import Empfaenger.Kassensystem;
 import javafx.collections.ObservableList;
 import sample.Rechnung;
-
-import java.util.ArrayList;
 
 public class Abschliessen implements RechnungBefehl {
 

@@ -1,16 +1,13 @@
-package empfaenger;
+package Empfaenger;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.cell.PropertyValueFactory;
-import sample.Controller;
 import sample.Rechnung;
 import sample.Singelton;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.ArrayList;
 
 public class Kassensystem {
     Connection connection = Singelton.getConn();

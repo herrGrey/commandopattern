@@ -1,10 +1,8 @@
-package aufrufer;
+package Aufrufer;
 
 import Befehl.RechnungBefehl;
 import javafx.collections.ObservableList;
 import sample.Rechnung;
-
-import java.util.ArrayList;
 
 public class Kellner {
     private RechnungBefehl rechnungBefehl;

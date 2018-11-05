@@ -4,20 +4,16 @@ package sample;
 import Befehl.Abschliessen;
 import Befehl.Bestellvorgang;
 import Befehl.Stornieren;
-import aufrufer.Kellner;
-import empfaenger.Kassensystem;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import Aufrufer.Kellner;
+import Empfaenger.Kassensystem;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
-import java.util.ResourceBundle;
 
 public class Controller {
 
