@@ -17,20 +17,24 @@ public class Kellner {
     /*
     Ruft die Methode Rechnungerstellen der Klasse Kasseensystem auf
 
-    @param tisch Tischnummer
-    @return ObservableList<Rechnung> OS-List die dann in die Tabelle gespeichert wird
+    @param  tisch Tischnummer
+    @return ObservableList<Rechnung>    OS-List die dann in die Tabelle gespeichert wird
      */
     public ObservableList<Rechnung> Rechnungdrucken(String tisch){
        return rechnungBefehl.Rechnungerstellen(tisch);
     }
     /*
     Ruft die Methode Bestellen der Klasse Kassensystem auf
-    @param essen Name des Gerichts
-    @param tisch Tischnummer
+    @param  essen Name des Gerichts
+    @param  tisch Tischnummer
      */
     public void Bestellen(String essen, String tisch){
         rechnungBefehl.Bestellen(essen,tisch);
     }
+    /*
+    Ruft die Methode Stornieren aus der Kassensystem Klasse auf
+    @param id   Primärschlüssel tbl_rechnung aus der Datenbank
+     */
     public void Stornieren(String id){
         rechnungBefehl.Stornieren(id);
     }
