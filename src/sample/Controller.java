@@ -1,0 +1,90 @@
+package sample;
+
+
+import Befehl.Abschliessen;
+import Befehl.Bestellvorgang;
+import Befehl.Stornieren;
+import aufrufer.Kellner;
+import empfaenger.Kassensystem;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+
+import java.net.URL;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.util.ResourceBundle;
+
+public class Controller {
+
+    Connection connection = Singelton.getConn();
+    @FXML private ListView<String> gerichte;
+    @FXML private ListView<String> tische;
+    @FXML private ListView<String> rechnung;
+    @FXML private TableView<Rechnung> table;
+    @FXML private TableColumn<Rechnung, String>id;
+    @FXML private TableColumn<Rechnung, String>gericht;
+    @FXML private TableColumn<Rechnung, String>preis;
+    @FXML private TableColumn<Rechnung, String>tisch;
+
+
+    public void gerichteLaden(){
+        try {
+            gerichte.getItems().clear();
+            ResultSet resultSet = connection.createStatement().executeQuery("SELECT g_name FROM tbl_gericht");
+            while (resultSet.next()) {
+                gerichte.getItems().add(resultSet.getString("g_name"));
+            }
+
+        }catch (Exception exc){
+            exc.printStackTrace();
+        }
+        tischeLaden();
+
+
+    }
+    public void tischeLaden(){
+        try {
+            tische.getItems().clear();
+            ResultSet resultSet = connection.createStatement().executeQuery("SELECT tisch_name FROM tbl_tisch");
+            while (resultSet.next()) {
+                tische.getItems().add(resultSet.getString("tisch_name"));
+            }
+
+        }catch (Exception exc){
+            exc.printStackTrace();
+        }
+    }
+    public void Rechnungdrucken(){
+
+
+        Kassensystem kassensystem = new Kassensystem();
+        Kellner kellner = new Kellner();
+        kellner.setRechnungBefehl(new Abschliessen(kassensystem));
+        id.setCellValueFactory(new PropertyValueFactory<>("id"));
+        gericht.setCellValueFactory(new PropertyValueFactory<>("gericht"));
+        preis.setCellValueFactory(new PropertyValueFactory<>("Preis"));
+        tisch.setCellValueFactory(new PropertyValueFactory<>("tisch"));
+        table.setItems(kellner.Rechnungdrucken(tische.getSelectionModel().getSelectedItem()));
+
+    }
+    public void Bestellen(){
+        Kassensystem kassensystem = new Kassensystem();
+        Kellner kellner1 = new Kellner();
+        kellner1.setRechnungBefehl(new Bestellvorgang(kassensystem));
+        kellner1.Bestellen(gerichte.getSelectionModel().getSelectedItem(),tische.getSelectionModel().getSelectedItem());
+    }
+    public void Stornieren(){
+        Kassensystem kassensystem = new Kassensystem();
+        Kellner kellner = new Kellner();
+        kellner.setRechnungBefehl(new Stornieren(kassensystem));
+        kellner.Stornieren(table.getSelectionModel().getSelectedItem().getId());
+    }
+
+    }
+
+

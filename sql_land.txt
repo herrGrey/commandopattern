@@ -1,0 +1,15 @@
+SELECT tbl_rechnung.rechnung_id, tbl_gericht.g_name, SUM(tbl_gericht.g_preis) AS Preis ,tbl_tisch.tisch_name
+FROM tbl_rechnung
+JOIN tbl_gericht ON tbl_rechnung.tbl_gericht_g_id=tbl_gericht.g_id
+JOIN tbl_tisch ON tbl_rechnung.tbl_tisch_tisch_id=tbl_tisch.tisch_id WHERE tbl_tisch.tisch_name = "22";
+
+
+INSERT INTO tbl_rechnung (rechnung_id, tbl_gericht_g_id, tbl_tisch_tisch_id)
+VALUES (NULL, 3, 2);
+
+
+
+SELECT tbl_rechnung.rechnung_id, tbl_gericht.g_name, SUM(tbl_gericht.g_preis) AS Preis ,tbl_tisch.tisch_name
+FROM tbl_rechnung
+JOIN tbl_gericht ON tbl_rechnung.tbl_gericht_g_id=tbl_gericht.g_id
+JOIN tbl_tisch ON tbl_rechnung.tbl_tisch_tisch_id=tbl_tisch.tisch_id WHERE tbl_tisch.tisch_name = "22" group by tbl_gericht.g_name;
