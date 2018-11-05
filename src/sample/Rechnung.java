@@ -3,37 +3,62 @@ package sample;
 public class Rechnung {
     String id;
     String gericht;
-    String Preis;
+    String preis;
     String tisch;
-
+    /*
+    Setter für die ID
+    @param id
+     */
     public void setId(String id) {
         this.id = id;
     }
-
+    /*
+    Setter für das Gericht
+    @param gericht
+     */
     public void setGericht(String gericht) {
         this.gericht = gericht;
     }
-
+    /*
+    Setter für den Preis
+    @param preis
+     */
     public void setPreis(String preis) {
-        Preis = preis;
+        preis = preis;
     }
-
+    /*
+    Setter für die setTisch
+    @param tisch
+     */
     public void setTisch(String tisch) {
         this.tisch = tisch;
     }
-
+    /*
+    Getter für die ID
+    return id Id der Rechnung
+     */
     public String getId() {
         return id;
     }
-
+    /*
+    Getter für den Gerichtnamen
+    @return gericht Gerichtname
+     */
     public String getGericht() {
         return gericht;
     }
-
+    /*
+   Getter für den Preis des Gerichtes
+   @return preis Preis des Gerichts
+     */
     public String getPreis() {
-        return Preis;
-    }
+        return preis;
 
+    }
+    /*
+    Getter für die Tischnummer
+    @return tisch Tischnummer
+     */
     public String getTisch() {
         return tisch;
     }
@@ -41,7 +66,7 @@ public class Rechnung {
     public Rechnung(String id, String gericht, String preis, String tisch) {
         this.id = id;
         this.gericht = gericht;
-        Preis = preis;
+        preis = preis;
         this.tisch = tisch;
     }
 }

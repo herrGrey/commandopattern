@@ -8,9 +8,18 @@ import sample.Singelton;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-
+/*
+Empfänger Klasse Kassensystem
+Hier werden die Methoden ausimplementiert
+ */
 public class Kassensystem {
     Connection connection = Singelton.getConn();
+    /*
+    Gibt die Rechnung pro Tisch in eine Tabelle aus
+
+    @param tisch Tischnummer
+    @return  ObservableList<Rechnung> Liste die in die Tabelle gespeichert werden
+     */
     public ObservableList<Rechnung> Rechnungdrucken(String tisch){
         ObservableList<Rechnung> liste = FXCollections.observableArrayList();
         try {
@@ -34,6 +43,11 @@ public class Kassensystem {
 
         return liste;
     }
+    /*
+    Ausgewähltes Essen und Tisch werden in die Rechnungstabelle gespeichert
+    @param essen    Gerichtname
+    @param tisch    Tischnummer
+     */
     public void Bestellen(String essen, String tisch){
         try {
 
@@ -49,6 +63,10 @@ public class Kassensystem {
         }
 
     }
+    /*
+    Methode die das Ausgewählte Gericht mittels der übergebenen ID aus der Datenbank löscht
+    @param id Primärschlüssel der Rechnungstabelle
+     */
     public void Stornieren(String id){
         try {
             PreparedStatement preparedStatement = connection.prepareStatement("  DELETE FROM tbl_rechnung WHERE rechnung_id=?;");
@@ -65,7 +83,11 @@ public class Kassensystem {
 
     }
 
-
+/*
+Gibt die ID des ausgewählten Gericht zurück
+@param essen Name des Gerichts
+@return int ID des Gerichts in tbl_gerichte
+ */
     public int getIDGericht(String essen){
         int essenid = 0;
         try {
@@ -83,6 +105,11 @@ public class Kassensystem {
         return essenid;
 
     }
+    /*
+Gibt die ID des ausgewählten Tisches zurück
+@param essen Tischnummer
+@return int ID des Tisches in tbl_tisch
+ */
     public int getIDTisch(String tisch){
         int tischid =0;
         try {

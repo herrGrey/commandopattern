@@ -1,5 +1,7 @@
 package sample;
-
+/*
+Controller Klasse zum Steuern der GUI Elemente
+ */
 
 import Befehl.Abschliessen;
 import Befehl.Bestellvorgang;
@@ -20,14 +22,16 @@ public class Controller {
     Connection connection = Singelton.getConn();
     @FXML private ListView<String> gerichte;
     @FXML private ListView<String> tische;
-    @FXML private ListView<String> rechnung;
     @FXML private TableView<Rechnung> table;
     @FXML private TableColumn<Rechnung, String>id;
     @FXML private TableColumn<Rechnung, String>gericht;
     @FXML private TableColumn<Rechnung, String>preis;
     @FXML private TableColumn<Rechnung, String>tisch;
 
+/*
+  gerichte aus der Datenbank in die ListView gerichte speichern
 
+ */
     public void gerichteLaden(){
         try {
             gerichte.getItems().clear();
@@ -43,6 +47,9 @@ public class Controller {
 
 
     }
+    /*
+    Tische aus der Datenbank in die ListView speichern
+     */
     public void tischeLaden(){
         try {
             tische.getItems().clear();
@@ -55,6 +62,9 @@ public class Controller {
             exc.printStackTrace();
         }
     }
+    /*
+    Methode die die Rechnung pro Tisch in die Tabelle schreibt
+     */
     public void Rechnungdrucken(){
 
 
@@ -68,12 +78,18 @@ public class Controller {
         table.setItems(kellner.Rechnungdrucken(tische.getSelectionModel().getSelectedItem()));
 
     }
+    /*
+    Methode zum Bestellen neuer Gerichte
+     */
     public void Bestellen(){
         Kassensystem kassensystem = new Kassensystem();
         Kellner kellner1 = new Kellner();
         kellner1.setRechnungBefehl(new Bestellvorgang(kassensystem));
         kellner1.Bestellen(gerichte.getSelectionModel().getSelectedItem(),tische.getSelectionModel().getSelectedItem());
     }
+    /*
+    Methode zum Stornieren ausgewählter Gerichte
+     */
     public void Stornieren(){
         Kassensystem kassensystem = new Kassensystem();
         Kellner kellner = new Kellner();

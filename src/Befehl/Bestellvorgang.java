@@ -10,11 +10,16 @@ public class Bestellvorgang implements RechnungBefehl {
     public Bestellvorgang(Kassensystem kassensystem) {
         this.kassensystem = kassensystem;
     }
+
     @Override
     public ObservableList<Rechnung> Rechnungerstellen(String tisch) {
         return null;
     }
+    /*
+    Methode zum Bestellen die das Ergebnis vom Empfänger in die Datenbank speichert
+    @param tisch Tischnummer
 
+ */
     @Override
     public void Bestellen(String essen, String tisch) {
         kassensystem.Bestellen(essen,tisch);

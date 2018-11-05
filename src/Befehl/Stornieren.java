@@ -20,7 +20,9 @@ public class Stornieren implements RechnungBefehl{
     public void Bestellen(String essen, String tisch) {
 
     }
-
+/*
+Stornieren Methode aus der Empfänger Klasse wird aufgerufen
+ */
     @Override
     public void Stornieren(String id) {
         kassensystem.Stornieren(id);
