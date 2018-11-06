@@ -11,7 +11,7 @@ public class Kellner {
 
 
     /*
-    Setter für den Rechnnungsbefehl
+    Setter für den Befehl
      */
     public void setOberBefehl (OberBefehl oberBefehl){
         this.oberBefehl = oberBefehl;
