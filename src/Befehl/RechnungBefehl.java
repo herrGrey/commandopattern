@@ -5,10 +5,8 @@ Interface für die verfügbaren Befehle
 import javafx.collections.ObservableList;
 import sample.Rechnung;
 
-import java.util.ArrayList;
-
-public interface RechnungBefehl {
+public interface RechnungBefehl extends OberBefehl{
     ObservableList<Rechnung> Rechnungerstellen(String tisch);
-    void Bestellen(String essen, String tisch);
-    void Stornieren(String id);
+
+
 }

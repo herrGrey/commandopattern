@@ -24,7 +24,8 @@ public class Kassensystem {
         ObservableList<Rechnung> liste = FXCollections.observableArrayList();
         try {
             ResultSet resultSet;
-            PreparedStatement preparedStatement = connection.prepareStatement("SELECT tbl_rechnung.rechnung_id, tbl_gericht.g_name, tbl_gericht.g_preis AS Preis ,tbl_tisch.tisch_name\n" +
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT tbl_rechnung.rechnung_id, tbl_gericht.g_name , tbl_gericht.g_preis " +
+                    ",tbl_tisch.tisch_name\n" +
                     "FROM tbl_rechnung\n" +
                     "JOIN tbl_gericht ON tbl_rechnung.tbl_gericht_g_id=tbl_gericht.g_id\n" +
                     "JOIN tbl_tisch ON tbl_rechnung.tbl_tisch_tisch_id=tbl_tisch.tisch_id WHERE tbl_tisch.tisch_name =?");
@@ -32,7 +33,7 @@ public class Kassensystem {
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 liste.add(new Rechnung(resultSet.getString("tbl_rechnung.rechnung_id"),
-                        resultSet.getString("tbl_gericht.g_name"),resultSet.getString("Preis"),
+                        resultSet.getString("tbl_gericht.g_name"),resultSet.getString("tbl_gericht.g_preis"),
                         resultSet.getString("tbl_tisch.tisch_name")));
             }
 

@@ -4,17 +4,14 @@ import Empfaenger.Kassensystem;
 import javafx.collections.ObservableList;
 import sample.Rechnung;
 
-public class Bestellvorgang implements RechnungBefehl {
+public class Bestellvorgang implements BestellBefehl {
     private Kassensystem kassensystem;
 
     public Bestellvorgang(Kassensystem kassensystem) {
         this.kassensystem = kassensystem;
     }
 
-    @Override
-    public ObservableList<Rechnung> Rechnungerstellen(String tisch) {
-        return null;
-    }
+
     /*
     Methode zum Bestellen die das Ergebnis vom Empfänger in die Datenbank speichert
     @param tisch Tischnummer
@@ -25,9 +22,6 @@ public class Bestellvorgang implements RechnungBefehl {
         kassensystem.Bestellen(essen,tisch);
     }
 
-    @Override
-    public void Stornieren(String id) {
 
-    }
 
 }

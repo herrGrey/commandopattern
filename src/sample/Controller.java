@@ -70,10 +70,10 @@ public class Controller {
 
         Kassensystem kassensystem = new Kassensystem();
         Kellner kellner = new Kellner();
-        kellner.setRechnungBefehl(new Abschliessen(kassensystem));
+        kellner.setOberBefehl(new Abschliessen(kassensystem));
         id.setCellValueFactory(new PropertyValueFactory<>("id"));
         gericht.setCellValueFactory(new PropertyValueFactory<>("gericht"));
-        preis.setCellValueFactory(new PropertyValueFactory<>("Preis"));
+        preis.setCellValueFactory(new PropertyValueFactory<>("preis"));
         tisch.setCellValueFactory(new PropertyValueFactory<>("tisch"));
         table.setItems(kellner.Rechnungdrucken(tische.getSelectionModel().getSelectedItem()));
 
@@ -84,7 +84,7 @@ public class Controller {
     public void Bestellen(){
         Kassensystem kassensystem = new Kassensystem();
         Kellner kellner1 = new Kellner();
-        kellner1.setRechnungBefehl(new Bestellvorgang(kassensystem));
+        kellner1.setOberBefehl(new Bestellvorgang(kassensystem));
         kellner1.Bestellen(gerichte.getSelectionModel().getSelectedItem(),tische.getSelectionModel().getSelectedItem());
     }
     /*
@@ -93,7 +93,7 @@ public class Controller {
     public void Stornieren(){
         Kassensystem kassensystem = new Kassensystem();
         Kellner kellner = new Kellner();
-        kellner.setRechnungBefehl(new Stornieren(kassensystem));
+        kellner.setOberBefehl(new Stornieren(kassensystem));
         kellner.Stornieren(table.getSelectionModel().getSelectedItem().getId());
     }
 

@@ -1,17 +1,20 @@
+
 package Aufrufer;
 
-import Befehl.RechnungBefehl;
+import Befehl.*;
 import javafx.collections.ObservableList;
 import sample.Rechnung;
 
 public class Kellner {
-    private RechnungBefehl rechnungBefehl;
+
+    private OberBefehl oberBefehl;
+
 
     /*
     Setter für den Rechnnungsbefehl
      */
-    public void setRechnungBefehl (RechnungBefehl rechnungBefehl){
-        this.rechnungBefehl = rechnungBefehl;
+    public void setOberBefehl (OberBefehl oberBefehl){
+        this.oberBefehl = oberBefehl;
     }
 
     /*
@@ -22,7 +25,10 @@ public class Kellner {
      */
 
     public ObservableList<Rechnung> Rechnungdrucken(String tisch){
-       return rechnungBefehl.Rechnungerstellen(tisch);
+        if (oberBefehl instanceof Abschliessen){
+            return ((Abschliessen) oberBefehl).Rechnungerstellen(tisch);
+        }
+        return null;
     }
     /*
     Methode zum Bestellen von Speißen
@@ -30,13 +36,17 @@ public class Kellner {
     @param  tisch Tischnummer
      */
     public void Bestellen(String essen, String tisch){
-        rechnungBefehl.Bestellen(essen,tisch);
+       if (oberBefehl instanceof Bestellvorgang){
+           ((Bestellvorgang) oberBefehl).Bestellen(essen,tisch);
+       }
     }
     /*
     Methode zum Stornieren von Bestellungen
     @param id   Primärschlüssel tbl_rechnung aus der Datenbank
      */
     public void Stornieren(String id){
-        rechnungBefehl.Stornieren(id);
+        if (oberBefehl instanceof Stornieren){
+            ((Stornieren) oberBefehl).Stornieren(id);
+        }
     }
 }

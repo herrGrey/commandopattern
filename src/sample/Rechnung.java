@@ -66,7 +66,7 @@ public class Rechnung {
     public Rechnung(String id, String gericht, String preis, String tisch) {
         this.id = id;
         this.gericht = gericht;
-        preis = preis;
+        this.preis = preis;
         this.tisch = tisch;
     }
 }

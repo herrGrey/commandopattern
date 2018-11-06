@@ -23,15 +23,5 @@ Methode zum Rechnungerstellen die das Ergebnis vom Empfänger als OS-List return
        return kassensystem.Rechnungdrucken(tisch);
     }
 
-    @Override
-    public void Bestellen(String essen, String tisch) {
-
-    }
-
-    @Override
-    public void Stornieren(String id) {
-
-    }
-
 
 }
