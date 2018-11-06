@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 06. Nov 2018 um 12:57
+-- Erstellungszeit: 06. Nov 2018 um 15:52
 -- Server-Version: 10.1.35-MariaDB
 -- PHP-Version: 7.2.9
 
@@ -71,11 +71,12 @@ INSERT INTO `tbl_rechnung` (`rechnung_id`, `tbl_gericht_g_id`, `tbl_tisch_tisch_
 (9, 1, 2),
 (12, 1, 1),
 (15, 3, 1),
-(17, 1, 1),
 (19, 1, 3),
 (20, 3, 1),
 (21, 5, 5),
-(23, 2, 4);
+(23, 2, 4),
+(25, 7, 2),
+(26, 2, 5);
 
 -- --------------------------------------------------------
 
@@ -137,13 +138,13 @@ ALTER TABLE `tbl_gericht`
 -- AUTO_INCREMENT für Tabelle `tbl_rechnung`
 --
 ALTER TABLE `tbl_rechnung`
-  MODIFY `rechnung_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `rechnung_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT für Tabelle `tbl_tisch`
 --
 ALTER TABLE `tbl_tisch`
-  MODIFY `tisch_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `tisch_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints der exportierten Tabellen

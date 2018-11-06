@@ -5,9 +5,11 @@ Controller Klasse zum Steuern der GUI Elemente
 
 import Befehl.Abschliessen;
 import Befehl.Bestellvorgang;
+import Befehl.RechnungBefehl;
 import Befehl.Stornieren;
 import Aufrufer.Kellner;
 import Empfaenger.Kassensystem;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
@@ -27,7 +29,8 @@ public class Controller {
     @FXML private TableColumn<Rechnung, String>gericht;
     @FXML private TableColumn<Rechnung, String>preis;
     @FXML private TableColumn<Rechnung, String>tisch;
-
+    Kassensystem kassensystem = new Kassensystem();
+    Kellner kellner = new Kellner();
 /*
   gerichte aus der Datenbank in die ListView gerichte speichern
 
@@ -68,8 +71,7 @@ public class Controller {
     public void Rechnungdrucken(){
 
 
-        Kassensystem kassensystem = new Kassensystem();
-        Kellner kellner = new Kellner();
+
         kellner.setOberBefehl(new Abschliessen(kassensystem));
         id.setCellValueFactory(new PropertyValueFactory<>("id"));
         gericht.setCellValueFactory(new PropertyValueFactory<>("gericht"));
@@ -82,19 +84,19 @@ public class Controller {
     Methode zum Bestellen neuer Gerichte
      */
     public void Bestellen(){
-        Kassensystem kassensystem = new Kassensystem();
-        Kellner kellner1 = new Kellner();
-        kellner1.setOberBefehl(new Bestellvorgang(kassensystem));
-        kellner1.Bestellen(gerichte.getSelectionModel().getSelectedItem(),tische.getSelectionModel().getSelectedItem());
+
+        kellner.setOberBefehl(new Bestellvorgang(kassensystem));
+        kellner.Bestellen(gerichte.getSelectionModel().getSelectedItem(),tische.getSelectionModel().getSelectedItem());
+
     }
     /*
     Methode zum Stornieren ausgewählter Gerichte
      */
     public void Stornieren(){
-        Kassensystem kassensystem = new Kassensystem();
-        Kellner kellner = new Kellner();
+
         kellner.setOberBefehl(new Stornieren(kassensystem));
         kellner.Stornieren(table.getSelectionModel().getSelectedItem().getId());
+        Rechnungdrucken();
     }
 
     }
