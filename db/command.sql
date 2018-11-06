@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 05. Nov 2018 um 10:51
+-- Erstellungszeit: 06. Nov 2018 um 12:57
 -- Server-Version: 10.1.35-MariaDB
 -- PHP-Version: 7.2.9
 
@@ -41,7 +41,11 @@ CREATE TABLE `tbl_gericht` (
 INSERT INTO `tbl_gericht` (`g_id`, `g_name`, `g_preis`) VALUES
 (1, 'Pizza', '5'),
 (2, 'Döner', '4'),
-(3, 'Burger', '4');
+(3, 'Burger', '4'),
+(4, 'Dürüm', '6'),
+(5, 'DönerBox', '5'),
+(6, 'Pommes', '2'),
+(7, 'Cola', '2');
 
 -- --------------------------------------------------------
 
@@ -61,16 +65,17 @@ CREATE TABLE `tbl_rechnung` (
 
 INSERT INTO `tbl_rechnung` (`rechnung_id`, `tbl_gericht_g_id`, `tbl_tisch_tisch_id`) VALUES
 (3, 1, 3),
-(4, 2, 3),
-(5, 1, 3),
 (6, 3, 3),
 (7, 1, 2),
 (8, 2, 2),
 (9, 1, 2),
-(10, 2, 2),
 (12, 1, 1),
 (15, 3, 1),
-(17, 1, 1);
+(17, 1, 1),
+(19, 1, 3),
+(20, 3, 1),
+(21, 5, 5),
+(23, 2, 4);
 
 -- --------------------------------------------------------
 
@@ -90,7 +95,9 @@ CREATE TABLE `tbl_tisch` (
 INSERT INTO `tbl_tisch` (`tisch_id`, `tisch_name`) VALUES
 (1, '21'),
 (2, '22'),
-(3, '23');
+(3, '23'),
+(4, '24'),
+(5, '25');
 
 --
 -- Indizes der exportierten Tabellen
@@ -124,19 +131,19 @@ ALTER TABLE `tbl_tisch`
 -- AUTO_INCREMENT für Tabelle `tbl_gericht`
 --
 ALTER TABLE `tbl_gericht`
-  MODIFY `g_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `g_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT für Tabelle `tbl_rechnung`
 --
 ALTER TABLE `tbl_rechnung`
-  MODIFY `rechnung_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `rechnung_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT für Tabelle `tbl_tisch`
 --
 ALTER TABLE `tbl_tisch`
-  MODIFY `tisch_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `tisch_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints der exportierten Tabellen
