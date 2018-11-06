@@ -1,12 +1,11 @@
 package sample;
-/*
+/**
 Controller Klasse zum Steuern der GUI Elemente
  */
 
 import Befehl.*;
 import Aufrufer.Kellner;
 import Empfaenger.Kassensystem;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
@@ -30,7 +29,7 @@ public class Controller {
     @FXML private TextArea area;
     Kassensystem kassensystem = new Kassensystem();
     Kellner kellner = new Kellner();
-/*
+/**
   gerichte aus der Datenbank in die ListView gerichte speichern
 
  */
@@ -49,7 +48,7 @@ public class Controller {
 
 
     }
-    /*
+    /**
     Tische aus der Datenbank in die ListView speichern
      */
     public void tischeLaden(){
@@ -64,7 +63,7 @@ public class Controller {
             exc.printStackTrace();
         }
     }
-    /*
+    /**
     Methode die die Rechnung pro Tisch in die Tabelle schreibt
      */
     public void Rechnungdrucken(){
@@ -79,7 +78,7 @@ public class Controller {
         table.setItems(kellner.Rechnungdrucken(tische.getSelectionModel().getSelectedItem()));
 
     }
-    /*
+    /**
     Methode zum Bestellen neuer Gerichte
      */
     public void Bestellen(){
@@ -88,7 +87,7 @@ public class Controller {
         kellner.Bestellen(gerichte.getSelectionModel().getSelectedItem(),tische.getSelectionModel().getSelectedItem());
 
     }
-    /*
+    /**
     Methode zum Stornieren ausgewählter Gerichte
      */
     public void Stornieren(){
@@ -97,6 +96,10 @@ public class Controller {
         kellner.Stornieren(table.getSelectionModel().getSelectedItem().getId());
         Rechnungdrucken();
     }
+
+    /**
+     * Gibt den Umsatz in eine TextArea
+     */
     public void getUmsatz(){
 
         kellner.setOberBefehl(new TagesUmsatz(kassensystem));

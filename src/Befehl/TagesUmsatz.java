@@ -7,7 +7,7 @@ public class TagesUmsatz implements TagesUmsatzBefehl {
     public TagesUmsatz(Kassensystem kassensystem){
         this.kassensystem = kassensystem;
     }
-    /*
+    /**
     gibt das Ergebnis der getTagesUmsatz aus der Empfänger Klasse zurück
     @return String
      */

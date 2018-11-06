@@ -1,4 +1,7 @@
 package Befehl;
+/**
+ * Konkrete Befehlsklasse für den Bestellvorgang
+ */
 
 import Empfaenger.Kassensystem;
 import javafx.collections.ObservableList;
@@ -12,7 +15,7 @@ public class Bestellvorgang implements BestellBefehl {
     }
 
 
-    /*
+    /**
     Methode zum Bestellen die das Ergebnis vom Empfänger in die Datenbank speichert
     @param tisch Tischnummer
 

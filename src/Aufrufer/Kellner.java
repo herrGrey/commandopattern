@@ -10,18 +10,17 @@ public class Kellner {
     private OberBefehl oberBefehl;
 
 
-    /*
+    /**
     Setter für den Befehl
      */
     public void setOberBefehl (OberBefehl oberBefehl){
         this.oberBefehl = oberBefehl;
     }
 
-    /*
-    Methode zum Rechunungdrucken
-
-    @param  tisch Tischnummer
-    @return ObservableList<Rechnung>    OS-List die dann in die Tabelle gespeichert wird
+    /**
+     * Ruft die Methode Rechnung erstellen aus dem Konkreten Befehl auf
+     * @param tisch
+     * @return ObserableList
      */
 
     public ObservableList<Rechnung> Rechnungdrucken(String tisch){
@@ -30,7 +29,7 @@ public class Kellner {
         }
         return null;
     }
-    /*
+    /**
     Methode zum Bestellen von Speißen
     @param  essen Name des Gerichts
     @param  tisch Tischnummer
@@ -40,7 +39,7 @@ public class Kellner {
            ((Bestellvorgang) oberBefehl).Bestellen(essen,tisch);
        }
     }
-    /*
+    /**
     Methode zum Stornieren von Bestellungen
     @param id   Primärschlüssel tbl_rechnung aus der Datenbank
      */
@@ -49,7 +48,7 @@ public class Kellner {
             ((Stornieren) oberBefehl).Stornieren(id);
         }
     }
-    /*
+    /**
     Methode zum Ausgeben des Umsatzes
     @return String
      */

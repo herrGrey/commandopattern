@@ -1,4 +1,7 @@
 package sample;
+/**
+ * Main Klasse ladet die Stage bzw. die GUI
+ */
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

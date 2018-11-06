@@ -1,5 +1,7 @@
 package sample;
-
+/**
+Singelton Klasse die die Verbindung zur DB aufbaut
+ */
 import java.sql.Connection;
 import java.sql.DriverManager;
 

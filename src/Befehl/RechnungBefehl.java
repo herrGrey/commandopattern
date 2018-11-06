@@ -1,7 +1,6 @@
 package Befehl;
-/*
-Interface für die verfügbaren Befehle
- */
+
+
 import javafx.collections.ObservableList;
 import sample.Rechnung;
 
