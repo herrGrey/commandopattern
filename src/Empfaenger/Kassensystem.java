@@ -64,6 +64,25 @@ public class Kassensystem {
         }
 
     }
+    public String getTagesUmsatz(){
+
+        try {
+            ResultSet resultSet;
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT SUM(tbl_gericht.g_preis)AS Preis\n" +
+                    "                    FROM tbl_rechnung\n" +
+                    "                    JOIN tbl_gericht ON tbl_rechnung.tbl_gericht_g_id=tbl_gericht.g_id");
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                return resultSet.getString("Preis")+"€ beträgt " +
+                        "\n" +
+                        "ihr Umsatz am heutigen Tag";
+            }
+
+        }catch (Exception exc){
+            exc.printStackTrace();
+        }
+        return null;
+    }
     /*
     Methode die das Ausgewählte Gericht mittels der übergebenen ID aus der Datenbank löscht
     @param id Primärschlüssel der Rechnungstabelle

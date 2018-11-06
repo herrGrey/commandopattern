@@ -3,10 +3,7 @@ package sample;
 Controller Klasse zum Steuern der GUI Elemente
  */
 
-import Befehl.Abschliessen;
-import Befehl.Bestellvorgang;
-import Befehl.RechnungBefehl;
-import Befehl.Stornieren;
+import Befehl.*;
 import Aufrufer.Kellner;
 import Empfaenger.Kassensystem;
 import javafx.collections.ObservableList;
@@ -14,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.sql.Connection;
@@ -29,6 +27,7 @@ public class Controller {
     @FXML private TableColumn<Rechnung, String>gericht;
     @FXML private TableColumn<Rechnung, String>preis;
     @FXML private TableColumn<Rechnung, String>tisch;
+    @FXML private TextArea area;
     Kassensystem kassensystem = new Kassensystem();
     Kellner kellner = new Kellner();
 /*
@@ -97,6 +96,11 @@ public class Controller {
         kellner.setOberBefehl(new Stornieren(kassensystem));
         kellner.Stornieren(table.getSelectionModel().getSelectedItem().getId());
         Rechnungdrucken();
+    }
+    public void getUmsatz(){
+
+        kellner.setOberBefehl(new TagesUmsatz(kassensystem));
+        area.setText(kellner.getTagesUmsatz());
     }
 
     }
