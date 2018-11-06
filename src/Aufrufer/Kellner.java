@@ -49,6 +49,10 @@ public class Kellner {
             ((Stornieren) oberBefehl).Stornieren(id);
         }
     }
+    /*
+    Methode zum Ausgeben des Umsatzes
+    @return String
+     */
     public String getTagesUmsatz(){
         if (oberBefehl instanceof TagesUmsatz){
            return  ((TagesUmsatz) oberBefehl).getTagesUmsazt();

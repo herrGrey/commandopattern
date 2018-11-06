@@ -64,6 +64,10 @@ public class Kassensystem {
         }
 
     }
+    /*
+    Gibt die Summe der Preise aus der Rechnungstabelle zurück
+    @return String
+     */
     public String getTagesUmsatz(){
 
         try {
@@ -75,7 +79,7 @@ public class Kassensystem {
             while (resultSet.next()){
                 return resultSet.getString("Preis")+"€ beträgt " +
                         "\n" +
-                        "ihr Umsatz am heutigen Tag";
+                        "Ihr Umsatz am heutigen Tag";
             }
 
         }catch (Exception exc){
