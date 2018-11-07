@@ -26,6 +26,4 @@ public class Bestellvorgang implements BestellBefehl {
         kassensystem.Bestellen(essen,tisch);
     }
 
-
-
 }
