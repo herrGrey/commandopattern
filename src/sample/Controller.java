@@ -1,7 +1,4 @@
 package sample;
-/**
-Controller Klasse zum Steuern der GUI Elemente
- */
 
 import Befehl.*;
 import Aufrufer.Kellner;
@@ -15,7 +12,11 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
-
+/**
+ Main Klasse Gui wird hier geladen
+ @author herrGrey
+ @version 1.0
+ */
 public class Controller {
 
     Connection connection = Singelton.getConn();

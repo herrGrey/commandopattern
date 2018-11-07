@@ -5,6 +5,11 @@ import Befehl.*;
 import javafx.collections.ObservableList;
 import sample.Rechnung;
 
+/**
+ * Klasse des Befehlsausführer
+ * @author herrGrey
+ * version 1.0
+ */
 public class Kellner {
 
     private OberBefehl oberBefehl;
@@ -12,6 +17,7 @@ public class Kellner {
 
     /**
     Setter für den Befehl
+     @param oberBefehl Konkreter Befehl
      */
     public void setOberBefehl (OberBefehl oberBefehl){
         this.oberBefehl = oberBefehl;
@@ -19,10 +25,9 @@ public class Kellner {
 
     /**
      * Ruft die Methode Rechnung erstellen aus dem Konkreten Befehl auf
-     * @param tisch
-     * @return ObserableList
+     * @param tisch Tischnummer
+     * @return ObserableList List die in der Tabelle ausgegeben wird
      */
-
     public ObservableList<Rechnung> Rechnungdrucken(String tisch){
         if (oberBefehl instanceof Abschliessen){
             return ((Abschliessen) oberBefehl).Rechnungerstellen(tisch);
@@ -30,7 +35,7 @@ public class Kellner {
         return null;
     }
     /**
-    Methode zum Bestellen von Speißen
+     Ruft die Methode Bestellen aus dem Konkreten Befehl auf
     @param  essen Name des Gerichts
     @param  tisch Tischnummer
      */
@@ -40,7 +45,7 @@ public class Kellner {
        }
     }
     /**
-    Methode zum Stornieren von Bestellungen
+     Ruft die Methode Stornieren aus dem Konkreten Befehl auf
     @param id   Primärschlüssel tbl_rechnung aus der Datenbank
      */
     public void Stornieren(String id){
@@ -49,7 +54,7 @@ public class Kellner {
         }
     }
     /**
-    Methode zum Ausgeben des Umsatzes
+     Ruft die Methode getTagesUmsatz aus dem Konkreten Befehl auf
     @return String
      */
     public String getTagesUmsatz(){

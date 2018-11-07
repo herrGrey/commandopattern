@@ -1,6 +1,8 @@
 package sample;
 /**
 Tabellenklasse Objekt wird in die OS-List gespeichert
+ @author herrGrey
+ @version 1.0
  */
 public class Rechnung {
     String id;
@@ -9,35 +11,35 @@ public class Rechnung {
     String tisch;
     /**
     Setter für die ID
-    @param id
+    @param id id der Rechnung
      */
     public void setId(String id) {
         this.id = id;
     }
     /**
     Setter für das Gericht
-    @param gericht
+    @param gericht name des Gerichts
      */
     public void setGericht(String gericht) {
         this.gericht = gericht;
     }
     /**
     Setter für den Preis
-    @param preis
+    @param preis Preis des Gerichts
      */
     public void setPreis(String preis) {
         preis = preis;
     }
     /**
     Setter für die setTisch
-    @param tisch
+    @param tisch Tischnummer
      */
     public void setTisch(String tisch) {
         this.tisch = tisch;
     }
     /**
     Getter für die ID
-    return id Id der Rechnung
+    @return id Id der Rechnung
      */
     public String getId() {
         return id;
@@ -67,10 +69,10 @@ public class Rechnung {
 
     /**
      * to String zum ausgeben der Daten in die Tabelle
-     * @param id
-     * @param gericht
-     * @param preis
-     * @param tisch
+     * @param id id aus der Rechnungstabelle
+     * @param gericht Name des Gerichts
+     * @param preis Preis des Gerichts
+     * @param tisch tischnummer
      */
     public Rechnung(String id, String gericht, String preis, String tisch) {
         this.id = id;

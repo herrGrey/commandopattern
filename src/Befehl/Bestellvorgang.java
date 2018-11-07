@@ -1,12 +1,13 @@
 package Befehl;
-/**
- * Konkrete Befehlsklasse für den Bestellvorgang
- */
+
 
 import Empfaenger.Kassensystem;
-import javafx.collections.ObservableList;
-import sample.Rechnung;
 
+/**
+ * Konkrete Befehlsklasse für den Bestellvorgang
+ * @author herrGrey
+ * @version 1.0
+ */
 public class Bestellvorgang implements BestellBefehl {
     private Kassensystem kassensystem;
 

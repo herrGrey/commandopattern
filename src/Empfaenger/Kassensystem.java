@@ -11,14 +11,16 @@ import java.sql.ResultSet;
 /**
 Empfänger Klasse Kassensystem
 Hier werden die Methoden ausimplementiert
+ @author herrGrey
+ @version 1.0
  */
 public class Kassensystem {
     Connection connection = Singelton.getConn();
 
     /**
      * Ausimplemntierte Methode zum Erstellen einer Rechnung
-     * @param tisch
-     * @return ObservableList
+     * @param tisch Tischnummer
+     * @return ObservableList Liste die in der Tabelle ausgegeben wird
      */
     public ObservableList<Rechnung> Rechnungdrucken(String tisch){
         ObservableList<Rechnung> liste = FXCollections.observableArrayList();

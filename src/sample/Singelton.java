@@ -1,16 +1,23 @@
 package sample;
-/**
-Singelton Klasse die die Verbindung zur DB aufbaut
- */
+
 import java.sql.Connection;
 import java.sql.DriverManager;
-
+/**
+ Singelton Klasse die die Verbindung zur DB aufbaut
+ @author herrGrey
+ @version 1.0
+ */
 public class Singelton {
     static Connection conn = null;
 
     private Singelton(){
 
     }
+
+    /**
+     * Gibt die Verbindung zurück
+     * @return conn Verbindung zur Datenbank
+     */
     public static Connection getConn(){
         try {
             if(conn == null){

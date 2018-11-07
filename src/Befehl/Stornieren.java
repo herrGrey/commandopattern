@@ -1,16 +1,18 @@
 package Befehl;
-/**
- * Konkreter BefehlsKlasse für das Stornieren
- */
+
 
 import Empfaenger.Kassensystem;
 
-
+/**
+ * Konkreter BefehlsKlasse für das Stornieren
+ * @author herrGrey
+ * @version 1.0
+ */
 public class Stornieren implements StornierenBefehl{
     private Kassensystem kassensystem;
 /**
 Konkreter Befehl wird bekanntgegeben
- @param kassensystem
+ @param kassensystem EmpfängerKlasse
  */
     public Stornieren(Kassensystem kassensystem) {
         this.kassensystem = kassensystem;
@@ -18,7 +20,7 @@ Konkreter Befehl wird bekanntgegeben
 
 /**
 Stornieren Methode aus der Empfänger Klasse wird aufgerufen
- @param id
+ @param id id aus der Rechnungstabelle
  */
     @Override
     public void Stornieren(String id) {
