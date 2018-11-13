@@ -4,6 +4,6 @@ package Befehl;
  @author herrGrey
  @version 1.0
  */
-public interface TagesUmsatzBefehl extends OberBefehl {
+public interface TagesUmsatzBefehl {
     String getTagesUmsazt();
 }

@@ -65,13 +65,13 @@ public class Controller {
         }
     }
     /**
-    Methode die die Rechnung pro Tisch in die Tabelle schreibt
+    Methode die die Rechnungerstellen pro Tisch in die Tabelle schreibt
      */
     public void Rechnungdrucken(){
 
 
 
-        kellner.setOberBefehl(new Abschliessen(kassensystem));
+        kellner.setRechnungBefehl(new Rechnungerstellen(kassensystem));
         id.setCellValueFactory(new PropertyValueFactory<>("id"));
         gericht.setCellValueFactory(new PropertyValueFactory<>("gericht"));
         preis.setCellValueFactory(new PropertyValueFactory<>("preis"));
@@ -84,7 +84,7 @@ public class Controller {
      */
     public void Bestellen(){
 
-        kellner.setOberBefehl(new Bestellvorgang(kassensystem));
+        kellner.setBestellBefehl(new Bestellvorgang(kassensystem));
         kellner.Bestellen(gerichte.getSelectionModel().getSelectedItem(),tische.getSelectionModel().getSelectedItem());
 
     }
@@ -93,7 +93,7 @@ public class Controller {
      */
     public void Stornieren(){
 
-        kellner.setOberBefehl(new Stornieren(kassensystem));
+        kellner.setStornierenBefehl(new Stornieren(kassensystem));
         kellner.Stornieren(table.getSelectionModel().getSelectedItem().getId());
         Rechnungdrucken();
     }
@@ -103,7 +103,7 @@ public class Controller {
      */
     public void getUmsatz(){
 
-        kellner.setOberBefehl(new TagesUmsatz(kassensystem));
+        kellner.setTagesUmsatzBefehl(new TagesUmsatz(kassensystem));
         area.setText(kellner.getTagesUmsatz());
     }
 

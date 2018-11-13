@@ -18,7 +18,7 @@ public class Kassensystem {
     Connection connection = Singelton.getConn();
 
     /**
-     * Ausimplemntierte Methode zum Erstellen einer Rechnung
+     * Ausimplemntierte Methode zum Erstellen einer Rechnungerstellen
      * @param tisch Tischnummer
      * @return ObservableList Liste die in der Tabelle ausgegeben wird
      */

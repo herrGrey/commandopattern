@@ -8,7 +8,7 @@ Befehls Interface zum Rechnungerstellen
  @author herrGrey
  @version 1.0
  */
-public interface RechnungBefehl extends OberBefehl{
+public interface RechnungBefehl {
     ObservableList<Rechnung> Rechnungerstellen(String tisch);
 
 

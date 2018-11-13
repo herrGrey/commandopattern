@@ -5,18 +5,18 @@ import Empfaenger.Kassensystem;
 import javafx.collections.ObservableList;
 import sample.Rechnung;
 /**
- * Konkrete Befehlsklasse für das erstellen einer Rechnung
+ * Konkrete Befehlsklasse für das erstellen einer Rechnungerstellen
  * @author herrGrey
  * @version 1.0
  */
-public class Abschliessen implements RechnungBefehl {
+public class Rechnungerstellen implements RechnungBefehl {
 
     private Kassensystem kassensystem;
 /**
 Konkreter Befehl wird bekanntgegeben
  @param kassensystem EmpfängerKlasse
  */
-    public Abschliessen(Kassensystem kassensystem) {
+    public Rechnungerstellen(Kassensystem kassensystem) {
         this.kassensystem = kassensystem;
     }
 /**
@@ -25,7 +25,7 @@ Methode zum Rechnungerstellen die das Ergebnis vom Empfänger als OS-List return
 @return ObservableList Liste der Rechnungen
  */
     @Override
-    public ObservableList<Rechnung> Rechnungerstellen(String tisch) {
+    public ObservableList<sample.Rechnung> Rechnungerstellen(String tisch) {
        return kassensystem.Rechnungdrucken(tisch);
     }
 

@@ -4,6 +4,6 @@ package Befehl;
  @author herrGrey
  @version 1.0
  */
-public interface StornierenBefehl extends OberBefehl{
+public interface StornierenBefehl {
     void Stornieren(String id);
 }

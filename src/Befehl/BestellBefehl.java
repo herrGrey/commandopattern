@@ -5,7 +5,7 @@ package Befehl;
  @author herrGrey
  @version 1.0
  */
-public interface BestellBefehl extends OberBefehl{
+public interface BestellBefehl {
 
     void Bestellen(String essen, String tisch);
 }

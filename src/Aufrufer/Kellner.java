@@ -12,27 +12,40 @@ import sample.Rechnung;
  */
 public class Kellner {
 
-    private OberBefehl oberBefehl;
+    private RechnungBefehl rechnungBefehl;
+    private StornierenBefehl stornierenBefehl;
+    private BestellBefehl bestellBefehl;
+    private TagesUmsatzBefehl tagesUmsatzBefehl;
 
+    public void setRechnungBefehl(RechnungBefehl rechnungBefehl) {
+        this.rechnungBefehl = rechnungBefehl;
+    }
 
+    public void setStornierenBefehl(StornierenBefehl stornierenBefehl) {
+        this.stornierenBefehl = stornierenBefehl;
+    }
+
+    public void setBestellBefehl(BestellBefehl bestellBefehl) {
+        this.bestellBefehl = bestellBefehl;
+    }
+
+    public void setTagesUmsatzBefehl(TagesUmsatzBefehl tagesUmsatzBefehl) {
+        this.tagesUmsatzBefehl = tagesUmsatzBefehl;
+    }
     /**
     Setter für den Befehl
      @param oberBefehl Konkreter Befehl
      */
-    public void setOberBefehl (OberBefehl oberBefehl){
-        this.oberBefehl = oberBefehl;
-    }
+
 
     /**
-     * Ruft die Methode Rechnung erstellen aus dem Konkreten Befehl auf
+     * Ruft die Methode Rechnungerstellen erstellen aus dem Konkreten Befehl auf
      * @param tisch Tischnummer
      * @return ObserableList List die in der Tabelle ausgegeben wird
      */
     public ObservableList<Rechnung> Rechnungdrucken(String tisch){
-        if (oberBefehl instanceof Abschliessen){
-            return ((Abschliessen) oberBefehl).Rechnungerstellen(tisch);
-        }
-        return null;
+        return rechnungBefehl.Rechnungerstellen(tisch);
+
     }
     /**
      Ruft die Methode Bestellen aus dem Konkreten Befehl auf
@@ -40,27 +53,20 @@ public class Kellner {
     @param  tisch Tischnummer
      */
     public void Bestellen(String essen, String tisch){
-       if (oberBefehl instanceof Bestellvorgang){
-           ((Bestellvorgang) oberBefehl).Bestellen(essen,tisch);
-       }
+        bestellBefehl.Bestellen(essen,tisch);
     }
     /**
      Ruft die Methode Stornieren aus dem Konkreten Befehl auf
     @param id   Primärschlüssel tbl_rechnung aus der Datenbank
      */
     public void Stornieren(String id){
-        if (oberBefehl instanceof Stornieren){
-            ((Stornieren) oberBefehl).Stornieren(id);
-        }
+        stornierenBefehl.Stornieren(id);
     }
     /**
      Ruft die Methode getTagesUmsatz aus dem Konkreten Befehl auf
     @return String
      */
     public String getTagesUmsatz(){
-        if (oberBefehl instanceof TagesUmsatz){
-           return  ((TagesUmsatz) oberBefehl).getTagesUmsazt();
-        }
-        return null;
+        return tagesUmsatzBefehl.getTagesUmsazt();
     }
 }

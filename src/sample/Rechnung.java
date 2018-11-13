@@ -11,7 +11,7 @@ public class Rechnung {
     String tisch;
     /**
     Setter für die ID
-    @param id id der Rechnung
+    @param id id der Rechnungerstellen
      */
     public void setId(String id) {
         this.id = id;
@@ -39,7 +39,7 @@ public class Rechnung {
     }
     /**
     Getter für die ID
-    @return id Id der Rechnung
+    @return id Id der Rechnungerstellen
      */
     public String getId() {
         return id;
