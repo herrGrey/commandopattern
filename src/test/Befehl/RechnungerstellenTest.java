@@ -30,9 +30,10 @@ import static org.junit.Assert.*;
 * @version 1.0 
 */ 
 public class RechnungerstellenTest { 
-
+private Kassensystem kassensystem;
 @Before
-public void before() throws Exception { 
+public void before() throws Exception {
+    this.kassensystem = new Kassensystem();
 } 
 
 @After

@@ -24,10 +24,12 @@ import java.sql.Statement;
 * @since <pre>Dez 11, 2018</pre> 
 * @version 1.0 
 */ 
-public class ControllerTest { 
+public class ControllerTest {
+    private Statement statement;
 
 @Before
-public void before() throws Exception { 
+public void before() throws Exception {
+    this.statement = Singelton.getConn().createStatement();
 } 
 
 @After
@@ -79,9 +81,10 @@ public void testBestellen() throws Exception {
 * 
 * Method: Stornieren() 
 * 
-*/ 
+*/
+
 @Test
-public void testStornieren() throws Exception { 
+public void testStornieren() throws Exception {
 
 } 
 
@@ -93,7 +96,7 @@ public void testStornieren() throws Exception {
 @Test
 public void testGetUmsatz() throws Exception { 
     try {
-        Statement statement = Singelton.getConn().createStatement();
+
         ResultSet set = statement.executeQuery("SELECT SUM(tbl_gericht.g_preis)AS Preis\n" +
                 "                    FROM tbl_rechnung\n" +
                 "                    JOIN tbl_gericht ON tbl_rechnung.tbl_gericht_g_id=tbl_gericht.g_id");
